@@ -2,32 +2,38 @@ ProjectName = "GeoTracking"
 
 .SILENT:
 .PHONY: login
-# Log in to Google account
-login:
-	rm -f .clasp.json
+# Log in to Google account.
+login:s
 	clasp login
 
 .SILENT:
+.PHONY: clone
+## Generate .clasp.json. Only use right after cloning from repository.
+clone: login
+	read -p "scriptURL: " ScriptUrl; \
+	clasp clone $${ScriptUrl}
+
+.SILENT:
 .PHONY: create
-# Create new Google Sheet
+# Create new Google Sheet.
 create:
 	clasp create --title ${ProjectName} --type sheets
 
 .SILENT:
 .PHONY: push
-# Push codes to remote
+# Push codes to remote.
 push:
 	clasp push
 
 .SILENT:
 .PHONY: open
-# Open script to run code
+# Open script to run code.
 open:
 	clasp open
 
 .SILENT:
 .PHONY: init
-## Create initial sheet and project
+## Create initial sheet and project.
 init: login create push open
 
 .DEFAULT_GOAL := help

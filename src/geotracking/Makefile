@@ -1,26 +1,43 @@
 Pwd := $(shell pwd)
+
+.SILENT:
+.PHONY: login
+# Log in to Google account.
+login:
+	clasp login
+
+.SILENT:
+.PHONY: clone
+## Generate .clasp.json. Only use right after cloning from repository.
+clone: login
+	read -p "scriptURL: " ScriptUrl; \
+	clasp clone $${ScriptUrl}
+# As codes on remote differ with local all changes must be discarded.
+	git reset --hard
+	clasp setting rootDir ${Pwd}/dist
+
 .SILENT:
 .PHONY: setting
-# Copy .clasp.json from reset/ and update rootDir
+# Copy .clasp.json from reset/ and update rootDir.
 setting:
 	cp ../reset/.clasp.json ${Pwd}/.clasp.json
 	clasp setting rootDir ${Pwd}/dist
 
 .SILENT:
 .PHONY: init
-## Initialize project
+## Initialize project.
 init: setting forcepush
 	clasp deploy --description "Initial version"
 
 .SILENT:
 .PHONY: open
-## Open script
+## Open script.
 open: 
 	clasp open
 
 .SILENT:
 .PHONY: dist
-## Generate codes optimized for Google Apps Script
+## Generate codes optimized for Google Apps Script.
 dist:
 	if [ ! -d ./dist ]; then \
 		mkdir ./dist; \
@@ -31,13 +48,13 @@ dist:
 
 .SILENT:
 .PHONY: push
-## Push codes to remote
+## Push codes to remote.
 push: dist
 	clasp push
 
 .SILENT:
 .PHONY: forcepush
-## Force push codes to remote
+## Force push codes to remote.
 forcepush: dist
 	clasp push -f
 
