@@ -267,9 +267,9 @@ anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-babel-plugin-clasp@takuyahara/babel-plugin-clasp#^0.0.7:
-  version "0.0.7"
-  resolved "git+ssh://git@github.com/takuyahara/babel-plugin-clasp.git#0485984d29e5b25d2c5ad5c49b56f7d57f4a1525"
+babel-plugin-clasp@takuyahara/babel-plugin-clasp#^0.0.8:
+  version "0.0.8"
+  resolved "git+ssh://git@github.com/takuyahara/babel-plugin-clasp.git#724ac821e2d7e3a326e8587669df63b86d4a1149"
 
 balanced-match@^1.0.0:
   version "1.0.2"
