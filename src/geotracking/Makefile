@@ -12,16 +12,13 @@ login:
 clone: login
 	read -p "scriptURL: " ScriptUrl; \
 	clasp clone $${ScriptUrl}
-# As codes on remote differ with local all changes must be discarded.
-	git reset --hard
-	clasp setting rootDir ${Pwd}/dist
 
 .SILENT:
 .PHONY: setting
 # Copy .clasp.json from reset/ and update rootDir.
 setting:
 	cp ../reset/.clasp.json ${Pwd}/.clasp.json
-	clasp setting rootDir ${Pwd}/dist
+	clasp setting rootDir ${Pwd}
 
 .SILENT:
 .PHONY: init
@@ -30,25 +27,16 @@ init: setting push
 	clasp deploy --description "Initial version"
 
 .SILENT:
+.PHONY: push
+## Push codes to remote.
+push:
+	clasp push -f
+
+.SILENT:
 .PHONY: open
 ## Open script.
 open: 
 	clasp open
-
-.SILENT:
-.PHONY: dist
-## Generate codes optimized for Google Apps Script.
-dist:
-	rm -rf ./dist && mkdir ./dist
-	npx babel --plugins=babel-plugin-clasp ./*.js --out-dir ./dist
-	npx prettier ./dist/*.js --write
-	cp appsscript.json ./dist
-
-.SILENT:
-.PHONY: push
-## Push codes to remote.
-push: dist
-	clasp push -f
 
 .DEFAULT_GOAL := help
 .SILENT:

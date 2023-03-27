@@ -46,4 +46,3 @@ class TrackingInvert {
     sheet.setFrozenRows(HEADER.length);
   }
 }
-exports.TrackingInvert = TrackingInvert;

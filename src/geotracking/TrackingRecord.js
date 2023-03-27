@@ -23,4 +23,3 @@ class TrackingRecord {
     return [id, place, datetime, trigger, rawData];
   }
 }
-exports.TrackingRecord = TrackingRecord;

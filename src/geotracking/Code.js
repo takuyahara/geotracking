@@ -1,7 +1,7 @@
-const { TrackingCalendar } = require("./TrackingCalendar");
-const { TrackingRecord } = require("./TrackingRecord");
-const { TrackingInvert } = require("./TrackingInvert");
-const { TrackingLog } = require("./TrackingLog");
+/// <reference path="TrackingCalendar.js" />
+/// <reference path="TrackingRecord.js" />
+/// <reference path="TrackingInvert.js" />
+/// <reference path="TrackingLog.js" />
 const CALENDAR_NAME = "Outing";
 const SHEET_NAME_LOG = "Log";
 const SHEET_NAME_INVERT = "Invert";

@@ -1,4 +1,4 @@
-const { TrackingRecord } = require("./TrackingRecord");
+/// <reference path="TrackingRecord.js" />
 
 class TrackingLog {
   static get ROW_DATA_FROM() {
@@ -63,4 +63,3 @@ class TrackingLog {
     sheet.deleteRow(maxRows);
   }
 }
-exports.TrackingLog = TrackingLog;

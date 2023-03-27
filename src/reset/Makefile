@@ -13,9 +13,6 @@ login:
 clone: login
 	read -p "scriptURL: " ScriptUrl; \
 	clasp clone $${ScriptUrl}
-# As codes on remote differ with local all changes must be discarded.
-	git reset --hard
-	clasp setting rootDir ${Pwd}/dist
 
 .SILENT:
 .PHONY: create
@@ -24,36 +21,21 @@ create:
 	clasp create --title ${ProjectName} --type sheets
 
 .SILENT:
-.PHONY: dist
-## Generate codes optimized for Google Apps Script.
-dist:
-	rm -rf ./dist && mkdir ./dist
-	npx babel --plugins=babel-plugin-clasp ./*.js --out-dir ./dist
-	npx prettier ./dist/*.js --write
-	cp appsscript.json ./dist
-
-.SILENT:
 .PHONY: push
 # Push codes to remote.
-push: dist
+push:
 	clasp push -f
+
+.SILENT:
+.PHONY: init
+## Create initial sheet and project.
+init: login create push open
 
 .SILENT:
 .PHONY: open
 ## Open script to run code.
 open:
 	clasp open
-
-.SILENT:
-.PHONY: setting
-# Copy .clasp.json from reset/ and update rootDir.
-setting:
-	clasp setting rootDir ${Pwd}/dist
-
-.SILENT:
-.PHONY: init
-## Create initial sheet and project.
-init: login create setting push open
 
 .DEFAULT_GOAL := help
 .SILENT:

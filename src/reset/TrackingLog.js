@@ -54,4 +54,3 @@ class TrackingLog {
     sheet.setFrozenRows(HEADER.length);
   }
 }
-exports.TrackingLog = TrackingLog;

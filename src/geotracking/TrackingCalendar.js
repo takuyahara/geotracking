@@ -30,4 +30,3 @@ class TrackingCalendar {
     event.setTime(startTime, endTime);
   }
 }
-exports.TrackingCalendar = TrackingCalendar;

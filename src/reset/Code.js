@@ -1,5 +1,5 @@
-const { TrackingLog } = require("./TrackingLog");
-const { TrackingInvert } = require("./TrackingInvert");
+/// <reference path="TrackingLog.js" />
+/// <reference path="TrackingInvert.js" />
 const SHEET_NAME_LOG = "Log";
 const SHEET_NAME_INVERT = "Invert";
 

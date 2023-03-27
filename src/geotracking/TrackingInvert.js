@@ -32,4 +32,3 @@ class TrackingInvert {
     return placeExists;
   }
 }
-exports.TrackingInvert = TrackingInvert;
