@@ -13,7 +13,7 @@
   // "forwardPorts": [],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "yarn global add @google/clasp && yarn install && yarn --cwd src/src/geotracking install",
+  "postCreateCommand": "yarn global add @google/clasp && yarn install && yarn --cwd src/geotracking install",
 
   // Configure tool-specific properties.
   "customizations": {
