@@ -30,3 +30,4 @@ class MyCalendar {
     event.setTime(startTime, endTime);
   }
 }
+exports.MyCalendar = MyCalendar;

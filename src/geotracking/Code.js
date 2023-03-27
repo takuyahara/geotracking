@@ -1,3 +1,4 @@
+const { MyCalendar } = require("./MyCalendar");
 const { MyRecord } = require("./MyRecord");
 const { MySheet } = require("./MySheet");
 const CALENDAR_NAME = "Outing";
