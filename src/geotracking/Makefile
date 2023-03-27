@@ -39,9 +39,7 @@ open:
 .PHONY: dist
 ## Generate codes optimized for Google Apps Script.
 dist:
-	if [ ! -d ./dist ]; then \
-		mkdir ./dist; \
-	fi
+	rm -rf ./dist && mkdir ./dist
 	npx babel --plugins=babel-plugin-clasp ./*.js --out-dir ./dist
 	npx prettier ./dist/*.js --write
 	cp appsscript.json ./dist

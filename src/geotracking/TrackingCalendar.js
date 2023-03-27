@@ -1,4 +1,4 @@
-class MyCalendar {
+class TrackingCalendar {
   /**
    * @param {string} name Calendar's name
    */
@@ -30,4 +30,4 @@ class MyCalendar {
     event.setTime(startTime, endTime);
   }
 }
-exports.MyCalendar = MyCalendar;
+exports.TrackingCalendar = TrackingCalendar;

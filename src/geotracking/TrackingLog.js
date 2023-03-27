@@ -1,6 +1,6 @@
-const { MyRecord } = require("./MyRecord");
+const { TrackingRecord } = require("./TrackingRecord");
 
-class MySheet {
+class TrackingLog {
   static get ROW_DATA_FROM() {
     return 2;
   }
@@ -16,7 +16,7 @@ class MySheet {
    * @param {string} place
    */
   getPreviousRecordByPlace(place) {
-    const { ROW_DATA_FROM } = MySheet;
+    const { ROW_DATA_FROM } = TrackingLog;
     const { sheet } = this;
     if (sheet === null) {
       throw new ReferenceError("`sheet` is null!");
@@ -30,19 +30,25 @@ class MySheet {
       maxColumns
     );
     const valuesData = rangeData.getValues();
-    /** @type {MyRecord[]} */
+    /** @type {TrackingRecord[]} */
     const records = valuesData.map(
       (rowData) =>
-        new MyRecord(rowData[0], rowData[1], rowData[2], rowData[3], rowData[4])
+        new TrackingRecord(
+          rowData[0],
+          rowData[1],
+          rowData[2],
+          rowData[3],
+          rowData[4]
+        )
     );
     const matchedRecord = records.find((record) => record.place === place);
     return matchedRecord;
   }
   /**
-   * @param {MyRecord[]} records Record to insert
+   * @param {TrackingRecord[]} records Record to insert
    */
   unshiftRecords(...records) {
-    const { ROW_DATA_FROM } = MySheet;
+    const { ROW_DATA_FROM } = TrackingLog;
     const { sheet } = this;
     if (sheet === null) {
       throw new ReferenceError("`sheet` is null!");
@@ -57,4 +63,4 @@ class MySheet {
     sheet.deleteRow(maxRows);
   }
 }
-exports.MySheet = MySheet;
+exports.TrackingLog = TrackingLog;

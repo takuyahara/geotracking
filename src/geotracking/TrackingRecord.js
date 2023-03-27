@@ -1,4 +1,4 @@
-class MyRecord {
+class TrackingRecord {
   /**
    * @param {string} id
    * @param {string} place
@@ -23,4 +23,4 @@ class MyRecord {
     return [id, place, datetime, trigger, rawData];
   }
 }
-exports.MyRecord = MyRecord;
+exports.TrackingRecord = TrackingRecord;
