@@ -26,7 +26,7 @@ setting:
 .SILENT:
 .PHONY: init
 ## Initialize project.
-init: setting forcepush
+init: setting push
 	clasp deploy --description "Initial version"
 
 .SILENT:
@@ -48,12 +48,6 @@ dist:
 .PHONY: push
 ## Push codes to remote.
 push: dist
-	clasp push
-
-.SILENT:
-.PHONY: forcepush
-## Force push codes to remote.
-forcepush: dist
 	clasp push -f
 
 .DEFAULT_GOAL := help
