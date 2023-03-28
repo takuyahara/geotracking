@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "lib": ["ES2016"],
+    "target": "ES5"
+  },
+  "include": ["./"]
+}

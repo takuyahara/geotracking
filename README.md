@@ -31,5 +31,5 @@ Follow the instruction to initialize project.
 
 ```bash
 $ echo "Get next deploy version"
-$ echo $(($(npx clasp deployments | awk '{ print $3 }' | grep ^@[1-9][0-9]*$ | sed -e 's/^@//' | sort -nr | head -n 1) + 1))
+$ echo $(($(clasp deployments | awk '{ print $3 }' | grep ^@[1-9][0-9]*$ | sed -e 's/^@//' | sort -nr | head -n 1) + 1))
 ```

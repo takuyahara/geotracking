@@ -1,5 +1,3 @@
-/// <reference path="TrackingRecord.js" />
-
 class TrackingLog {
   static get ROW_DATA_FROM() {
     return 2;

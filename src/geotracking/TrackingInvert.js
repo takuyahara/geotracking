@@ -27,6 +27,7 @@ class TrackingInvert {
       1
     );
     const valuesData = rangeData.getValues();
+    /** @type {string[]} */
     const places = valuesData.map((valuesRow) => valuesRow[0]);
     const placeExists = places.includes(place);
     return placeExists;
